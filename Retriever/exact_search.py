@@ -46,7 +46,7 @@ class DenseRetrievalExactSearch(BaseSearch):
             "dot": "Dot Product",
         }
         self.corpus_chunk_size = corpus_chunk_size
-        self.show_progress_bar = kwargs.get("show_progress_bar", True)
+        self.show_progress_bar = kwargs.get("show_progress_bar", False)
         self.convert_to_tensor = kwargs.get("convert_to_tensor", True)
         self.results = {}
         self.cache_dir = cache_dir
@@ -135,6 +135,10 @@ class DenseRetrievalExactSearch(BaseSearch):
                 corpus_id = corpus_ids[sub_idx]
                 if corpus_id != query_id:
                     self.results[query_id][corpus_id] = score
+        
+        for query_id in self.results:
+            top_items = sorted(self.results[query_id].items(), key=lambda x: x[1], reverse=True)
+            self.results[query_id] = dict(top_items[:top_k])
 
         return self.results
     
