@@ -5,7 +5,7 @@ import logging
 
 import torch
 
-from util import cos_sim, dot_score
+from retriever.util import cos_sim, dot_score
 
 logger = logging.getLogger(__name__)
 
