@@ -36,7 +36,7 @@ def get_corpus_id(corpus: dict[str, dict[str, str]]) -> str:
 # DenseRetrievalExactSearch is parent class for any dense model that can be used for retrieval
 # Abstract class is BaseSearch
 class DenseRetrievalExactSearch(BaseSearch):
-    def __init__(self, model, batch_size: int = 128, corpus_chunk_size: int = 50000, cache_dir: str = "./cache", **kwargs):
+    def __init__(self, model, batch_size: int = 128, corpus_chunk_size: int = 50000, cache_dir: str = "../cache", **kwargs):
         # model is class that provides encode_corpus() and encode_queries()
         self.model = model
         self.batch_size = batch_size
