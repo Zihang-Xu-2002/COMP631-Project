@@ -11,7 +11,7 @@ from frontend.components import floating_scroll_button
 
 get_searcher_and_corpus()
 
-API_KEY = "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"
+API_KEY = "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"
 
 # 调用 LLaMA，只提问
 def call_llama_only_query(query):
