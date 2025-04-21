@@ -12,7 +12,7 @@ searcher = None
 corpus = None
 
 def get_searcher_and_corpus(
-    corpus_path="./retriever/data/corpus.csv", 
+    corpus_path="../retriever/data/corpus.csv",
     model_name="jxm/cde-small-v2",
     ratio=1.0
 ):
@@ -63,7 +63,7 @@ def get_searcher_and_corpus(
     return searcher, corpus
 
 
-def rag_retrieve(query: str, top_k=3, score_function="cos_sim"):
+def rag_retrieve(query: str, top_k=10, score_function="cos_sim"):
     """用于 frontend 调用：基于 query 返回 top_k 检索文档"""
     if searcher is None or corpus is None:
         raise RuntimeError("Retriever not initialized. Call get_searcher_and_corpus() first.")
